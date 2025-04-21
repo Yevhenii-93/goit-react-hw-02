@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
+import Notification from "./components/Notification/Notification";
 
 function App() {
   const feedbackTypes = ["good", "neutral", "bad"];
@@ -53,13 +54,24 @@ function App() {
           updateFeedback={updateFeedback}
           totalFeedback={totalFeedback}
         />
-        <Feedback
+
+        {totalFeedback === 0 ? (
+          <Notification text={"No feedback yet"} />
+        ) : (
+          <Feedback
+            typeNames={feedbackTypes}
+            values={values}
+            totalFeedback={totalFeedback}
+            positiveFeedback={positiveFeedback}
+          />
+        )}
+        {/* <Feedback
           typeNames={feedbackTypes}
           values={values}
-          notification={"No feedback yet"}
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
+        <Notification text={"No feedback yet"} /> */}
       </main>
     </>
   );
