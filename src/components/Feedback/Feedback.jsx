@@ -1,3 +1,5 @@
+import css from "./Feedback.module.css";
+
 export default function Feedback({
   values,
   notification,
@@ -10,16 +12,16 @@ export default function Feedback({
       {totalFeedback !== 0 ? (
         <ul>
           {typeNames.map((typeName) => (
-            <li key={typeName}>
+            <li key={typeName} className={css.feedbackItem}>
               {typeName.charAt(0).toUpperCase() + typeName.slice(1)}:{" "}
               {values[typeName]}
             </li>
           ))}
-          <li>Total: {totalFeedback}</li>
-          <li>Positive: {positiveFeedback}%</li>
+          <li className={css.feedbackItem}>Total: {totalFeedback}</li>
+          <li className={css.feedbackItem}>Positive: {positiveFeedback}%</li>
         </ul>
       ) : (
-        <p>{notification}</p>
+        <p className={css.feedbackItem}>{notification}</p>
       )}
     </>
   );

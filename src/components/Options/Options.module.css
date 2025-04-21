@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  justify-content: center;
   gap: 12px;
 }
 
@@ -8,4 +7,11 @@
   padding: 12px;
   border: 1px solid #fafafa;
   border-radius: 12%;
+  background-color: rgba(209, 129, 24, 0.514);
+}
+.btn:hover {
+  background-color: rgb(172, 121, 56);
+}
+.btn:active {
+  background-color: rgb(209, 129, 24);
 }

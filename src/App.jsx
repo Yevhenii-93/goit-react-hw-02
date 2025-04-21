@@ -7,10 +7,17 @@ import Feedback from "./components/Feedback/Feedback";
 function App() {
   const feedbackTypes = ["good", "neutral", "bad"];
 
-  const [values, setValues] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [values, setValues] = useState(() => {
+    const saveFeedback = localStorage.getItem("feedback-info");
+    if (saveFeedback !== null) {
+      return JSON.parse(saveFeedback);
+    } else {
+      return {
+        good: 0,
+        neutral: 0,
+        bad: 0,
+      };
+    }
   });
 
   const resetTotalFeedback = () => {
